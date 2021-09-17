@@ -1,0 +1,18 @@
+.profil-page {
+    
+    max-width: 1200px;}
+
+    .log-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;margin: 80px auto 0;
+        }
+
+
+
+
+img{
+    max-width: 100%;
+    height:300px
+}

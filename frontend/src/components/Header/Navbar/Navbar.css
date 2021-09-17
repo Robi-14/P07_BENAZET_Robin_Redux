@@ -1,0 +1,24 @@
+nav{background: #fdeeee;}
+
+
+.nav-container{display:flex;
+justify-content: space-between;
+align-items: center;
+margin: 0px 30px;
+margin-bottom: 20px;
+height: 60px;
+
+}
+.profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.img-log{height: 40px;
+}
+.logo-log{height: 25px;
+}
+.welcome{
+    margin-right: 30px;
+}

@@ -1,0 +1,25 @@
+.log-form {
+    border: none;
+    background: #fdeeee;
+    min-width: 490px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;}
+    
+.form-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+li{ cursor: pointer;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: 0.2s;}
+
+.active-btn {
+    background:#ff7b77}
+.active-btn:hover{
+    background: #ffd0c4;
+}
