@@ -1,14 +1,53 @@
-.card-container{border: 3px solid indianred;border-radius: 20px; margin: 20px }
+.card-container , .comments-container{border: 3px solid indianred;border-radius: 20px; margin: 20px }
+
 .user_date{ display: flex; align-items: center;justify-content: space-between;   }
 .user_date p { margin: 10px 20px;font-size: 14px;font-style: italic;}
 .content_attachment{
     display: flex;flex-direction: column; justify-content: center; align-items: center;
 }
-.comments-img{
-    height:20px
+.btn-img{
+    height:25px; margin-left: 10px; transition: 0.5s ease-in-out;cursor: pointer;
 }
-.comments-button{
+.btn-img:hover{background: #ffd0c4; padding: 10px; border-radius: 5px;height: 50px;}
+.button{
     margin:10px 20px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor:default;
 }
 .content{ width: 80%;text-align: center;}
+.button-container{display: flex;flex-direction: row; }
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.textcomment{
+    background: #fdeeee;
+}
+
+
+.edit-comment{ display: flex; flex-direction: row; justify-content: flex-end; margin-right: 20px;margin-bottom: 10px;}
+
+.content{font-size:20px;margin-bottom: 10px;}
+
+.edit-comment-form{
+    display: flex;
+   
+}
+.label-edit{
+    padding: 10px 20px;
+    padding-bottom: 14px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    margin-right: 5px;
+   
+background:#ffd0c4;
+font-style: oblique;}

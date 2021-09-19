@@ -12,6 +12,7 @@ input {
 input[type="submit"] {
     margin-top: 10px;
     background:#ffd0c4 ;
+    cursor: pointer;
     }
 
 .ok{color: green;}

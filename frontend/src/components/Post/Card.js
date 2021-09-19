@@ -1,12 +1,28 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import {dateParser} from'./../../Utils/Utils'
-import './Card.css'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePost } from "../../actions/post.actions";
+import { dateParser } from "./../../Utils/Utils";
+
+import "./Card.css";
+import CardComment from "./CardComment";
+import Deletecard from "./Deletecard";
 
 export default function Card({ post }) {
-  console.log(post.UserId);
   const usersData = useSelector((state) => state.usersReducer);
+  const userData = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [textUpdate, setTextUpdate] = useState(null);
+  const [showComments, setShowComments] = useState(false);
   
+
+  const updateItem = () => {
+    if (textUpdate) {
+      dispatch(updatePost(post.id, textUpdate));
+    }
+    setIsUpdated(false);
+  };
+
   return (
     <div className="card-container" key={post.id}>
       <div className="user_date">
@@ -14,27 +30,57 @@ export default function Card({ post }) {
           {!!usersData[0] &&
             usersData
               .map((user) => {
-                if (user.id === post.UserId) return user.firstname
-                else return null
+                if (user.id === post.UserId) return user.firstname;
+                else return null;
               })
               .join("")}{" "}
           {!!usersData[0] &&
             usersData
               .map((user) => {
-                if (user.id === post.UserId) return user.lastname
-                else return null
+                if (user.id === post.UserId) return user.lastname;
+                else return null;
               })
               .join("")}
         </p>
         <p>Posté le {dateParser(post.createdAt)}</p>
       </div>
       <div className="content_attachment">
-          <p className='content'>{post.content}</p>
-          {post.attachement && <img src={post.attachement} alt="card-attachement" className="card-attachement"/>}
+        {isUpdated ? (
+          <div className="updatde-post">
+            <textarea
+              defaultValue={post.content}
+              onChange={(e) => setTextUpdate(e.target.value)}
+            ></textarea>
+            <div className="button-container">
+              <button onClick={updateItem} className="btn">
+                Modifier
+              </button>{" "}
+            </div>
+          </div>
+        ) : (
+          <p className="content">{post.content}</p>
+        )}
+        {post.attachement && (
+          <img
+            src={post.attachement}
+            alt="card-attachement"
+            className="card-attachement"
+          />
+        )}
       </div>
-      <div className="comments-button">
-      <img src="./img/comment.svg" alt="icon comment" className='comments-img' />
+
+      <div className="button">
+        <img src="./img/comment.svg" alt="icon comment" className="btn-img" onClick={()=> setShowComments(!showComments)}/>
+        {userData.id === post.UserId && (
+          <div className="button-container">
+            <div onClick={() => setIsUpdated(!isUpdated)}>
+              <img src="/img/edit.svg" alt="edit" className="btn-img" />{" "}
+            </div>
+            <Deletecard id={post.id} />
+          </div>
+        )}
       </div>
+      {showComments && <CardComment post={post}/>}
     </div>
   );
 }
