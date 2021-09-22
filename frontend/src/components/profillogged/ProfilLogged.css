@@ -30,4 +30,21 @@ border-radius: 20px;
 .label{
   margin-top: 55px;  margin-bottom: 10px;font-size: 30px;
 }
-.infoprofil{ font-size: 30px;}
+.infoprofil{ font-size: 30px;margin-bottom: 20px;}
+
+@media screen and (max-width :530px) { 
+.profilForm{width: 250px;}
+}
+
+@media screen and (max-width :380px) { 
+    .profilForm{width: 250px;height: 400px;}
+    
+    .titreprofil{font-size: 20px}
+    .infoprofil{font-size: 20px}
+    .label{font-size: 20px; margin-top: 20px;}
+    }
+
+@media screen and (max-width :333px) { 
+    .profilForm{width: 240px;height: 400px;}
+    
+}

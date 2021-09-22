@@ -3,6 +3,7 @@ const app =express();
 const bodyParser = require('body-parser');
 const dotEnv= require('dotenv').config()
 const mysql= require('mysql');
+const path =require('path')
 const db = mysql.createConnection({
     host: process.env.host,
     user : process.env.user,
@@ -30,6 +31,8 @@ app.use((req, res, next) => {
     next();
   });
 
+
+  app.use('/images', express.static(path.join(__dirname,'images')))
   app.use('/api/user', userRoutes)
   app.use('/api/messages', messageRoutes)
   app.use('/api/messages', commentairesRoutes )

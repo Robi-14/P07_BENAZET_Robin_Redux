@@ -60,6 +60,7 @@ export default function EditDeleteComment({ comment, postId }) {
           <input
             type="text"
             name="text"
+            className='textcomment edit-comment'
             onChange={(e) => setText(e.target.value)}
             defaultValue={comment.content}
                     />
@@ -68,7 +69,7 @@ export default function EditDeleteComment({ comment, postId }) {
               annuler
             </label>
 
-            <input type="submit" value="Modifier" />
+            <input type="submit" value="Modifier" className="submit-edit" />
           </div>
         </form>
       )}

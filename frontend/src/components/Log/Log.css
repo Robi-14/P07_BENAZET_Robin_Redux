@@ -23,3 +23,27 @@ li{ cursor: pointer;
 .active-btn:hover{
     background: #ffd0c4;
 }
+
+@media screen and (max-width :805px) { 
+    .log-form{ min-width: 0; width: 400px;}
+    .form-container{ flex-direction: column;}
+    
+    }
+
+@media screen and (max-width :707px) { 
+        .log-form{ width: 300px;}
+        
+        
+        }
+
+        @media screen and (max-width :570px) { 
+            .log-form{margin-bottom: 50px;}
+        }
+        @media screen and (max-width :415px) { 
+            .log-form{width: 220px;}
+            input[type="text"]{width: 150px;}
+            input[type="password"]{width: 150px;}
+            
+            }
+
+

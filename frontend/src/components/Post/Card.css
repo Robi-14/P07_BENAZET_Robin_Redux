@@ -1,4 +1,5 @@
-.card-container , .comments-container{border: 3px solid indianred;border-radius: 20px; margin: 20px }
+.card-container , .comments-container{border: 3px solid indianred;border-radius: 20px; margin: 20px; background: #fdeeee;}
+.comments-container{background: white;}
 
 .user_date{ display: flex; align-items: center;justify-content: space-between;   }
 .user_date p { margin: 10px 20px;font-size: 14px;font-style: italic;}
@@ -30,7 +31,7 @@ form{
 }
 
 .textcomment{
-    background: #fdeeee;
+    background: white;
 }
 
 
@@ -51,3 +52,25 @@ form{
    
 background:#ffd0c4;
 font-style: oblique;}
+
+.edit{margin-top: 10px;
+    background: #ffd0c4;
+    cursor: pointer; font-size: 1.2rem;
+    padding: 14px 20px;
+    margin: 0;
+    border-radius: 20px;}
+
+@media screen and (max-width :560px) { 
+   .textcomment{width:200px}
+}
+@media screen and (max-width :450px) { 
+    .textcomment{width:150px; font-size: 0.68rem;}
+ }
+
+ @media screen and (max-width :450px) { 
+    .textcomment{width:150px; font-size: 0.68rem;}
+    .label-edit{ height: 40px; font-size: 0.8rem;margin-top: 10px;}
+    .submit-edit{ height: 40px; font-size: 0.8rem;}
+    .edit-btn{display: flex; flex-direction: column;}
+    .edit-comment{ width: 100px;}
+ }

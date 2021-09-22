@@ -1,5 +1,5 @@
 .home{display: flex;
-flex-direction: row;}
+flex-direction: row;background-color: steelblue;}
 .main{ width: 100%;display: flex;
     flex-direction: column;
 align-items: center;}
@@ -13,7 +13,7 @@ align-items: center;}
     padding: 20px;
     border-radius: 20px;}
 
-
+body{background-color: steelblue;}
 
 textarea {
     width: 500px;
@@ -23,3 +23,45 @@ textarea {
     font-size: 1.2rem;
     border-radius: 20px;
     resize: none;}
+
+
+    @media screen and (max-width :780px) {
+
+        .post-form-container{
+            min-width: 0px;
+        }
+    }
+
+    @media screen and (max-width :680px) { 
+    .post-form-container{
+       width: 350px;
+    }
+    .user_date{ display: block;}
+
+    textarea {width: auto}
+
+    .attachment-picture{ width: auto}
+    #file-upload{ width: 180px}
+
+}
+@media screen and (max-width :569px) { 
+   
+
+    img{ height: auto;}
+}
+
+@media screen and (max-width :436px) { 
+    .post-form-container{
+       width: 250px;
+    }
+
+
+    textarea {width: 200px}
+
+    .attachment-picture{ width: auto}
+    #file-upload{ width: 180px}
+
+    .thread-container{ width: auto;}
+
+    
+}

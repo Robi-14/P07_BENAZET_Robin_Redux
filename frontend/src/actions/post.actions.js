@@ -57,18 +57,11 @@ export const deletePost= (postId)=>{
   
   }
 
-  export const createPost= (content, attachement)=>{
+  export const createPost= (data)=>{
     return(dispatch)=> {
-      return axios.post('http://localhost:5000/api/messages/new',{
-      content,
-      attachement
-    },{
+      return axios.post('http://localhost:5000/api/messages/new', data,{
         headers: { Authorization: `Bearer ${token}` }
-    }).then((res) => {
-          
-     dispatch({type: CREATE_POST, payload: {content,attachement}})
-    })
-    .catch((err)=> console.log(err))
+   
 
-  }
-  }
+
+    })}}

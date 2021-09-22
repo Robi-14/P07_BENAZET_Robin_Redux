@@ -16,7 +16,7 @@ export default function Profil() {
                     <Log/>
                 </div>
                 <div className="img-container">
-                    <img src="./img/icon-left-font.png" alt="Logo_groupomania" />
+                    <img src="./img/icon-left-font.svg" alt="Logo_groupomania" className='logo-groupo' />
                 </div>
             </div>
             )}

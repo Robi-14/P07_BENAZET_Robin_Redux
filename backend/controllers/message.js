@@ -12,6 +12,7 @@ exports.createMessage=(req, res, next)=>{
     const userId = decodedToken.userId;
 
     const content = req.body.content
+   
     models.User.findOne({
         where:{id: userId}})
     .then(user =>{
@@ -23,6 +24,7 @@ exports.createMessage=(req, res, next)=>{
     
     models.Message.create({
         content:content,
+        attachment: req.file ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}` : null,
         likes:0,
         UserId: userId
     })
@@ -32,10 +34,11 @@ exports.createMessage=(req, res, next)=>{
 
 exports.getAllMessages=(req, res, next)=>{
 
-// liste les message par un ordre 
-const order = req.query.order
+
+
 
 models.Message.findAll({
+// liste les message par un ordre 
 order :[
     ['createdAt','DESC' ]
 ],

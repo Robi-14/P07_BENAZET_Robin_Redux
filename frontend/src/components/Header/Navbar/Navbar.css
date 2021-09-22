@@ -22,3 +22,17 @@ height: 60px;
 .welcome{
     margin-right: 30px;
 }
+
+@media screen and (max-width :545px) { 
+    .welcome{text-align: end;}
+    
+}
+
+@media screen and (max-width :555px) { 
+    .nav-container{
+        margin-right: 0;
+        margin-left: 0;
+        
+    }
+    .welcome{font-size: 13px;}
+}

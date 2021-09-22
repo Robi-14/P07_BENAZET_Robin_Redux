@@ -95,11 +95,11 @@ models.User.findOne({
           return res.status(401).json({ error: 'Mot de passe incorrect !' });
         }
         res.status(200).json({
-            'userId': user.id,
+            
             token: jwt.sign(
-                {userId: user.id},
+                {userId: user.id, isAdmin: user.isAdmin},
                 `${process.env.TOKEN}`,
-                {expiresIn: '5h'},
+                {expiresIn: '1h'},
             )})
 
  }).catch(error => res.status(500).json({ error }))
@@ -120,7 +120,7 @@ const userId = decodedToken.userId;
 
 
 models.User.findOne({
-    attributes:[ 'id', 'email', 'lastname', 'firstname'],
+    attributes:[ 'id', 'email', 'lastname', 'firstname','isAdmin'],
     where : { id: userId}
 
 })
@@ -166,3 +166,18 @@ exports.getAllUsers=(req, res)=> {
 
 
 }
+
+exports.deleteUser= (req, res, next)=>{
+    const token = req.headers.authorization.split (' ')[1]; 
+    const decodedToken= jwt.verify(token, `${process.env.TOKEN}` );
+    const userId = decodedToken.userId;
+
+    models.User.findOne({
+    where:{id : userId}})
+    .then((user) => {
+      
+         models.User.destroy({ where:{id : userId} })
+            .then(() => res.status(200).json({ message: "utilisateur supprimé !" }))
+            .catch((error) => res.status(400).json({ error }));
+        });
+      }

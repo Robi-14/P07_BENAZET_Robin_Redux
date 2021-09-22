@@ -16,3 +16,11 @@ img{
     max-width: 100%;
     height:300px
 }
+body{background: white;}
+    
+    @media screen and (max-width :611px) { 
+        .logo-groupo{width: 200px;}
+        .log-container{flex-direction: column;}
+        
+        
+        }

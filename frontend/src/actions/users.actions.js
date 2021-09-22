@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export const GET_USERS = "GET_USERS";
+
+
+
 const userToken = localStorage.getItem("Token");
 const token = userToken;
 export const getUsers = () => {

@@ -20,7 +20,7 @@ export default function Navbar() {
           {uid ? (
             <div className='profil'>
               <NavLink exact to="/profil">
-                <p className="welcome">Bienvenue {userData.firstname} {userData.lastname}</p>
+                <p className="welcome">{userData.firstname} {userData.lastname}</p>
               </NavLink>
               <Logout/>
             </div>
