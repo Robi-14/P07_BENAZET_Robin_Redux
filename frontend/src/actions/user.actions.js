@@ -1,10 +1,12 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER";
-export const DELETE_USER="DELETE_USER"
+export const DELETE_USER = "DELETE_USER";
 
 const userToken = localStorage.getItem("Token");
 const token = userToken;
+
+// recuperation de l'user
 export const getUser = (uid) => {
   return (dispatch) => {
     return axios
@@ -18,13 +20,14 @@ export const getUser = (uid) => {
   };
 };
 
+// suppression de l'user
 export const deleteUser = (uid) => {
   return (dispatch) => {
     return axios
       .delete(`http://localhost:5000/api/user/${uid}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      
+
       .catch((err) => console.log(err));
   };
 };

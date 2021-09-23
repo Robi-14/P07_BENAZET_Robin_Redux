@@ -4,12 +4,14 @@ const bodyParser = require('body-parser');
 const dotEnv= require('dotenv').config()
 const mysql= require('mysql');
 const path =require('path')
+// creation de la connexion à la bd
 const db = mysql.createConnection({
     host: process.env.host,
     user : process.env.user,
     password: process.env.password,
     database: process.env.db,
 })
+// connexion à la bd
 db.connect(function(err){
     if (err) throw err;
     console.log("Connecté à la base de donées MySQL");
@@ -17,12 +19,14 @@ db.connect(function(err){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+// importation des routes
+
 const userRoutes =require('./routes/user')
 const messageRoutes =require('./routes/message');
 const commentairesRoutes = require('./routes/commentaires');
 
 
-
+// declaration des headers
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin",  '*');
@@ -31,7 +35,7 @@ app.use((req, res, next) => {
     next();
   });
 
-
+// declaration des routes
   app.use('/images', express.static(path.join(__dirname,'images')))
   app.use('/api/user', userRoutes)
   app.use('/api/messages', messageRoutes)

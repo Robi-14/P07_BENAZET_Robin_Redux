@@ -1,5 +1,13 @@
-.logo-leftnav{height: 50px; margin-bottom: 10px;padding:10px;}
-.logo-leftnav:hover{
-    background: #ffd0c4; border-radius: 10px;}
+.logo-leftnav {
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.logo-leftnav:hover {
+  background: #ffd0c4;
+  border-radius: 10px;
+}
 
-.leftnav-container{margin-left: 30px}
+.leftnav-container {
+  margin-left: 30px;
+}

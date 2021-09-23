@@ -1,15 +1,20 @@
-const express= require('express')
-const router= express.Router()
-const userCtrl= require('../controllers/user')
-const auth= require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const userCtrl = require("../controllers/user");
+const auth = require("../middleware/auth");
 
-router.post('/register', userCtrl.signup)
-router.post ('/login', userCtrl.login)
+// route d'inscription
+router.post("/register", userCtrl.signup);
+// route de connexion
+router.post("/login", userCtrl.login);
 
-router.get('/', auth, userCtrl.getAllUsers)
-router.get('/:id' , auth, userCtrl.getUserProfile)
-router.put('/profil', auth, userCtrl.updateUserProfile)
-router.delete('/:id', auth, userCtrl.deleteUser)
+// route de recuperation des users
+router.get("/", auth, userCtrl.getAllUsers);
+// route de recuperation de l'user
+router.get("/:id", auth, userCtrl.getUserProfile);
+// route de modification du profil pour amélioration plutard
+router.put("/profil", auth, userCtrl.updateUserProfile);
+// route de suppression de l'user
+router.delete("/:id", auth, userCtrl.deleteUser);
 
-
-module.exports=router
+module.exports = router;
