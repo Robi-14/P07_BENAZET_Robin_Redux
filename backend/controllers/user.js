@@ -72,7 +72,7 @@ exports.signup = (req, res) => {
         password: hash,
       })
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-        .catch((error) => res.status(400).json({ error }));
+        .catch(() => res.status(400).json("email deja utilisé"));
     })
     .catch((error) => res.status(500).json({ error }));
 };
